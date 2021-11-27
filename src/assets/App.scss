@@ -1,0 +1,62 @@
+.App {
+  text-align: center;
+  margin: 10% auto;
+  width: 60%;
+
+  .wrapper-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(160, 34, 34);
+    padding: 40px;
+    margin: 200px;
+    border-radius: 10px;
+
+    input{
+      border: none;
+      padding: 15px;
+      width: 100%;
+      margin: 20px;
+      border-radius: 5px;
+    }
+
+    .wrapper-button{
+      display: flex;
+      margin-top: 20px;
+      flex-direction: row;
+      width: 100%;
+      justify-content: space-evenly;
+
+    .login{
+      border: none;
+      padding: 10px;
+      height: 50%;
+      width: 30%;
+      background-color: rgb(38, 61, 191);
+      color: #fff;
+      border-radius: 5px;
+
+      a:link {
+        text-decoration: none;
+        color: #fff;
+      }
+    }
+
+    .regis{
+      border: none;
+      padding: 10px;
+      color: #fff;
+      height: 50%;
+      width: 30%;
+      background-color: rgb(42, 42, 151);
+      border-radius: 5px;
+      
+      a:link {
+        text-decoration: none;
+        color: #fff;
+      }
+    }
+    }
+  }
+}
