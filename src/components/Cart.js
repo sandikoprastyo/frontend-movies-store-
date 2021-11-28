@@ -73,28 +73,61 @@ function Cart(props) {
 
   const Payment = () => {
     return (
-      <div className='wrapper-payment'>
+
+      <div className='App' style={{marginTop: '-170px;'}}>
+      <div className='wrapper-form'>
         <input
           type='text'
-          placeholder='Name'
           value={name}
+          placeholder='Fullname'
           onChange={(e) => setName(e.target.value)}
         />
+
         <input
           type='text'
-          placeholder='email'
           value={email}
+          placeholder='Email'
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
           type='text'
-          placeholder='Credit Card or Debit'
           value={card}
+          placeholder='phone'
           onChange={(e) => setCard(e.target.value)}
         />
-        <button onClick={() => handlePayment(false)}>Back</button>
-        <button onClick={handlePaymentProcess}>Payment</button>
+        <div className='wrapper-button'>
+          <button onClick={() => handlePayment(false)}>
+          Back
+          </button>
+          <button className='regis' onClick={handlePaymentProcess}>
+            payment
+          </button>
+        </div>
       </div>
+    </div>
+
+      // <div className='wrapper-payment'>
+      //   <input
+      //     type='text'
+      //     placeholder='Name'
+      //     value={name}
+      //     onChange={(e) => setName(e.target.value)}
+      //   />
+      //   <input
+      //     type='text'
+      //     placeholder='email'
+      //     value={email}
+      //     onChange={(e) => setEmail(e.target.value)}
+      //   />
+      //   <input
+      //     type='text'
+      //     placeholder='Credit Card or Debit'
+      //     value={card}
+      //     onChange={(e) => setCard(e.target.value)}
+      //   />
+      //   <button onClick={() => handlePayment(false)}>Back</button>
+      //   <button onClick={handlePaymentProcess}>Payment</button>
+      // </div>
     );
   };
 
