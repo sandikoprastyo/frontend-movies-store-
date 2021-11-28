@@ -1,0 +1,30 @@
+.wrapper-card{
+    background-color: #888888;
+    display: flex;
+    padding: 30px;
+
+    .wrapper-card-left{
+        margin-right: 20px;
+        img{
+            width: 200px;
+            height: auto;
+            border-radius: 5px;
+        }
+    }
+    .wrapper-card-right{
+        line-height: 2;
+    
+        .action-button{
+            button{
+                border: none;
+                padding: 10px;
+                font-size: 16px;
+                border-radius: 5px;
+            }
+            button:last-child {
+                margin-left: 10px;
+            }
+
+        }
+    }
+}

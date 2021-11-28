@@ -6,7 +6,7 @@ function Cart() {
   return (
     <React.Fragment>
       <Header />
-      <div className='wrapper-home'>Cart</div>
+      <div className='wrapper-home'>Cart </div>
     </React.Fragment>
   );
 }
