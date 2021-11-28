@@ -43,7 +43,7 @@ const Movies = (props) => {
                 <br />
                 <div className='action-button'>
                   <button onClick={() => handleMembership(element.id)}>Membership</button>
-                  <button>Subscribe</button>
+                  <button onClick={props.Handlesubscribe}>Subscribe</button>
                 </div>
               </div>
             </div>

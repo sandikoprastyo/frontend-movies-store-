@@ -1,7 +1,7 @@
 import React from 'react';
 import {  Link } from 'react-router-dom';
 
-function Header() {
+function Header(props) {
   return (
       <div className='wrapper-header'>
         <div className='header'>
@@ -14,7 +14,10 @@ function Header() {
             </Link>
             <Link to='/contact'>
               <li>Contact</li>
-            </Link>
+          </Link>
+          <li>
+            Subscribe Movie ({ props.subscribe})
+          </li>
           </ul>
 
           <ul>
