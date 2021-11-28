@@ -1,10 +1,14 @@
 import React from 'react';
 import movies from '../../src/assets/dummy/movies.json';
 import '../assets/movies.scss';
-import { Link } from 'react-router-dom';
 
-const Movies = () => {
-  console.log(movies);
+const Movies = (props) => {
+
+  const handleMembership = (e) => {
+    props.setIsCart(true);
+    props.setIdMovie(e)
+  };
+
   return (
     <React.Fragment>
       {movies.map((element, index) => {
@@ -38,10 +42,7 @@ const Movies = () => {
                 </div>
                 <br />
                 <div className='action-button'>
-                  <Link to='/cart'>
-                    <button>Membership</button>
-                  </Link>
-
+                  <button onClick={() => handleMembership(element.id)}>Membership</button>
                   <button>Subscribe</button>
                 </div>
               </div>

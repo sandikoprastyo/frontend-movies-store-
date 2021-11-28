@@ -12,9 +12,6 @@ function Header() {
             <Link to='/about'>
               <li>About</li>
             </Link>
-            <Link to='/cart'>
-              <li>Cart</li>
-            </Link>
             <Link to='/contact'>
               <li>Contact</li>
             </Link>

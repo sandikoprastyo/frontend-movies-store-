@@ -1,15 +1,20 @@
 import React from 'react';
 import '../../src/assets/App.scss';
-import { Header } from '../components';
-import Movies from '../components/Movies';
+import { Movies, Header, Cart } from '../components';
 
-function Home() {
+function Home(props) {
+  const [isCart, setIsCart] = React.useState(false);
+  const [idMovie, setIdMovie] = React.useState(null);
 
   return (
     <React.Fragment>
-      <Header/>
+      <Header />
       <div className='wrapper-home'>
-        <Movies/>
+        {isCart ? (
+          <Cart setIsCart={setIsCart} idMovie={idMovie}/>
+        ) : (
+            <Movies setIsCart={setIsCart} setIdMovie={ setIdMovie}/>
+        )}
       </div>
     </React.Fragment>
   );
