@@ -6,6 +6,7 @@ function Home(props) {
   const [isCart, setIsCart] = React.useState(false);
   const [idMovie, setIdMovie] = React.useState(null);
 
+
   const [subscribe, setSubscribe] = React.useState(0);
 
   const Handlesubscribe = () => {
