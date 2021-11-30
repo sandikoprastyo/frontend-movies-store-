@@ -1,14 +1,42 @@
 import React from 'react';
-import movies from '../../src/assets/dummy/movies.json';
+// import movies from '../../src/assets/dummy/movies.json';
 import '../assets/movies.scss';
+import axios from 'axios';
+import { useCookies } from 'react-cookie';
+import { useNavigate } from 'react-router-dom';
 
 const Movies = (props) => {
+  const navigate = useNavigate();
+  const [cookies, setCookie] = useCookies();
+
+  const [movies, setMovies] = React.useState([]);
+  const [isLogin, setIsLogin] = React.useState(true);
+
 
   const handleMembership = (e) => {
-    props.setIsCart(true);
-    props.setIdMovie(e)
-  };
-
+    if (isLogin) {
+      navigate('/login')
+    } else {
+       props.setIsCart(true);
+       props.setIdMovie(e);
+    }
+  }
+ 
+  React.useEffect(() => {
+    if (cookies.token !== undefined) {
+      setIsLogin(false)
+    } else {
+      setIsLogin(true)
+    }
+    
+    axios.get('http://localhost:5000/movies').then((res) => {
+      if (res.data.status === 200) {
+        setMovies(res.data.data);
+      }
+    });
+  }, [cookies.token]);
+  
+  
   return (
     <React.Fragment>
       {movies.map((element, index) => {
@@ -42,7 +70,9 @@ const Movies = (props) => {
                 </div>
                 <br />
                 <div className='action-button'>
-                  <button onClick={() => handleMembership(element.id)}>Membership</button>
+                  <button onClick={() => handleMembership(element._id)}>
+                    Membership
+                  </button>
                   <button onClick={props.Handlesubscribe}>Subscribe</button>
                 </div>
               </div>

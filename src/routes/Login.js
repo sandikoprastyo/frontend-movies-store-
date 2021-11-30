@@ -1,11 +1,12 @@
 import React from 'react';
 import '../../src/assets/App.scss';
 import { Header } from '../components';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useCookies } from 'react-cookie';
 
 function Login() {
+  const navigate = useNavigate();
   // eslint-disable-next-line no-unused-vars
   const [cookies, setCookie] = useCookies();
 
@@ -21,29 +22,29 @@ function Login() {
   };
   
   const handleLogin = () => {
-    if (email === '' && password === '') {
-      setError('field cannot be empty');
-    } else if (email === '') {
-      setError('Email required');
-    } else if (password === '') {
-      setError('Password required');
-    } else if (isEmail(email)) {
-      setError('');
-
-      const data = {
-        email: email,
-        password: password,
-      };
-      
-      axios.post('http://localhost:5000/signin', data)
-        .then((res) => {
-          if (res.data.code === 200) {
-            setCookie('token', res.data.token)
-          }
-        }).catch((err) => {
-          setError(err.message)
-        })
-    }
+     if (email === '' && password === '') {
+       setError('field cannot be empty');
+     } else if (email === '') {
+       setError('Email required');
+     } else if (password === '') {
+       setError('Password required');
+     } else if (isEmail(email)) {
+       setError('')
+       const data = {
+         email: email,
+         password: password,
+       };
+  
+       axios.post('http://localhost:5000/signin', data)
+         .then((res) => {
+           if (res.data.code === 200) {
+             setCookie('token', res.data.token)
+             navigate('/')
+           }
+         }).catch((err) => {
+           setError(err.message)
+         })
+     }
   };
 
   return (

@@ -1,6 +1,8 @@
 import React from 'react';
 import '../../src/assets/App.scss';
-import movies from '../../src/assets/dummy/movies.json';
+// import movies from '../../src/assets/dummy/movies.json';
+import axios from 'axios';
+
 
 function Cart(props) {
   const [cart, setCart] = React.useState();
@@ -12,8 +14,12 @@ function Cart(props) {
   const [card, setCard] = React.useState('');
 
   React.useEffect(() => {
-    let data = movies.find((element) => element.id === props.idMovie);
-    setCart(data);
+
+    axios.get(`http://localhost:5000/movies/${props.idMovie}`).then((res) => {
+      if (res.data.status === 200) {
+        setCart(res.data.message)
+      }
+    });
   }, [props.idMovie]);
 
   const handlePaymentProcess = () => {
