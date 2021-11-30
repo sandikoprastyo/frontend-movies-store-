@@ -17,8 +17,19 @@ const Movies = (props) => {
     if (isLogin) {
       navigate('/login')
     } else {
+      // req BE axios payment
        props.setIsCart(true);
        props.setIdMovie(e);
+    }
+  }
+
+  const handleSubscribes = (el) => {
+    if (isLogin) {
+      navigate('/login')
+    } else {
+      alert(`Cool your subscribe ${el.title}`)
+      // req BE axios subscrbe
+       props.Handlesubscribe()
     }
   }
  
@@ -73,7 +84,7 @@ const Movies = (props) => {
                   <button onClick={() => handleMembership(element._id)}>
                     Membership
                   </button>
-                  <button onClick={props.Handlesubscribe}>Subscribe</button>
+                  <button onClick={() => handleSubscribes(element)}>Subscribe</button>
                 </div>
               </div>
             </div>
